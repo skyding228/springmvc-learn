@@ -10,6 +10,10 @@ to learn spring web mvc.
 -  dispatcherServlet 继承自RootWebApplicationContext。
 
 可以只配置其中一个，就没有继承关系。父容器中注入不了子容器的组件。
+优先注入自己容器内部的bean.
+
+- 覆盖
+DefaultListableBeanFactory.allowBeanDefinitionOverriding 默认允许覆盖
 
 ### mvc:annotation-driven
 这个是必须的，用来启动springmvc的基础设施。

@@ -10,8 +10,24 @@ import org.springframework.util.StringUtils;
  *
  * @author weichunhe
  */
-@Service
 public class HelloService {
+
+    private String name;
+
+    public HelloService() {
+    }
+
+    public HelloService(String name) {
+        this.name = name;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
 
     public int getAge(String name) {
         if (StringUtils.isEmpty(name)) {
