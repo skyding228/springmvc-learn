@@ -25,6 +25,9 @@ The use of <context:component-scan> implicitly enables the functionality of <con
 
 ### process
 ![tomcat](tomcat.jpg)
+
+来自[http://gearever.iteye.com/blog/1841586](http://gearever.iteye.com/blog/1841586)
+
 ```
 Tomcat
   Server 一个tomcat实例
