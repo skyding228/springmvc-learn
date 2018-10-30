@@ -24,12 +24,22 @@ The use of <context:component-scan> implicitly enables the functionality of <con
 
 
 ### process
+![tomcat](tomcat.jpg)
 ```
 Tomcat
-  |         request
-  connector  ->     servletContext
-             <-
-           response
+  Server 一个tomcat实例
+  |  1:n
+  |-- service
+         | 
+         |-- connector 
+         |       
+         |-- executor
+         |  request/response
+         |-- engine
+               |
+               |-- host
+               |-- context (web applications)
+
      
 Spring
 request -> Locale Resolver-> theme Resolver ->|Interceptors                | 
