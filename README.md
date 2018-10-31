@@ -53,4 +53,8 @@ request -> Locale Resolver-> theme Resolver ->|Interceptors                |
                                               |                            |
 ```
 
-Note that postHandle is less useful with @ResponseBody and ResponseEntity methods for which the response is written and committed within the HandlerAdapter and before postHandle. That means it is too late to make any changes to the response, such as adding an extra header. For such scenarios, you can implement ResponseBodyAdvice and either declare it as an Controller Advice bean or configure it directly on RequestMappingHandlerAdapter. 
+Note that postHandle is less useful with @ResponseBody and ResponseEntity methods for which the response is written and committed within the HandlerAdapter and before postHandle. That means it is too late to make any changes to the response, such as adding an extra header. For such scenarios, you can implement ResponseBodyAdvice and either declare it as an Controller Advice bean or configure it directly on RequestMappingHandlerAdapter.
+
+### spring session
+使用SpringHttpSessionConfiguration.springSessionRepositoryFilter 注册bean
+所以必须在ContextLoaderListener初始化session配置，并且filter名称必须是springSessionRepositoryFilter

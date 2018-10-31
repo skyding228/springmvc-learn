@@ -9,6 +9,8 @@ import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.HashMap;
@@ -41,8 +43,15 @@ public class HelloController {
     }
 
     @RequestMapping("/")
-    public String hello(String name) {
-        return "hello " + name + ",your age is " + helloService.getAge(name);
+    public String hello(String name, HttpServletRequest request) {
+        HttpSession session = request.getSession();
+        Object countAttr = session.getAttribute("count");
+        Integer count = 1;
+        if(countAttr instanceof Integer){
+            count += (Integer) countAttr;
+        }
+        session.setAttribute("count",count);
+        return "hello " + name + ",your age is " + helloService.getAge(name)+",has visited "+count+" times.";
     }
 
     @RequestMapping("/now")

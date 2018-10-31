@@ -16,5 +16,5 @@
 		<property name="suffix" value=".jsp" />
 	</bean>
 
-	
+	<!--<import resource="session.xml"></import>-->
 </beans>
