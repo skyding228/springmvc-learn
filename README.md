@@ -6,14 +6,33 @@ to learn spring web mvc.
 
 ### hierarchy
  
--  在web.xml中 使用ContextLoaderListener配置RootWebApplicationContext.
+-  在web.xml中 使用ContextLoaderListener配置RootWebApplicationContext.可以初始化一些公共的service/repository等。
 -  dispatcherServlet 继承自RootWebApplicationContext。
-
-可以只配置其中一个，就没有继承关系。父容器中注入不了子容器的组件。
-优先注入自己容器内部的bean.
-
 - 覆盖
 DefaultListableBeanFactory.allowBeanDefinitionOverriding 默认允许覆盖
+
+可以只配置dispatcherServlet。
+所有的controller必须在dispatcherServlet配置的容器中。
+```xml
+<context-param>
+    <param-name>contextConfigLocation</param-name>
+   <param-value>classpath:applicationContext.xml</param-value>
+  </context-param>
+```
+用来初始化ContextLoaderListener配置RootWebApplicationContext。
+
+```xml
+    <init-param>
+      <param-name>contextConfigLocation</param-name>
+      <param-value>/WEB-INF/mvc-config.xml</param-value>
+    </init-param>
+```
+用来初始化dispatcherServlet的webApplicationContext. 
+1. 通过param-value指定配置文件。
+2. param-value为空，不适用配置文件初始化。
+3. 不配置init-param，默认使用`[dispatcherServlet名称]`-config.xml.
+
+
 
 ### mvc:annotation-driven
 这个是必须的，用来启动springmvc的基础设施。
