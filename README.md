@@ -77,3 +77,7 @@ Note that postHandle is less useful with @ResponseBody and ResponseEntity method
 ### spring session
 使用SpringHttpSessionConfiguration.springSessionRepositoryFilter 注册bean
 所以必须在ContextLoaderListener初始化session配置，并且filter名称必须是springSessionRepositoryFilter
+
+## notice
+- BeanPostProcessor/BeanFactoryPostProcessor 只对当前容器中的bean有效
+- context:component-scan 默认会开启context:annotation-config
