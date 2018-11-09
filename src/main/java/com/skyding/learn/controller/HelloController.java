@@ -22,7 +22,6 @@ import java.util.Map;
  * @author weichunhe
  */
 @RestController
-@RequestMapping("/")
 public class HelloController {
 
     private ApplicationContext applicationContext;

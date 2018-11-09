@@ -29,9 +29,9 @@ DefaultListableBeanFactory.allowBeanDefinitionOverriding 默认允许覆盖
 ```
 用来初始化dispatcherServlet的webApplicationContext. 
 1. 通过param-value指定配置文件。
-2. param-value为空，不适用配置文件初始化。
+2. param-value为空，不使用配置文件初始化。
 3. 不配置init-param，默认使用`[dispatcherServlet名称]`-config.xml.
-
+4. controller 最好在DispatcherServlet中扫描，如果在RootWebApplication 中扫描，WebApplicationContext 中不能配置`<mvc:annotation-driven></mvc:annotation-driven> `,否则会使用子容器中的RequestMappingInfoHandlerMapping。
 
 
 ### mvc:annotation-driven

@@ -10,7 +10,7 @@
 	</appender>
 
 	
-    <logger name="org.springframework.beans.factory.support" level="TRACE" additivity="false">
+    <logger name="org.springframework" level="TRACE" additivity="false">
         <appender-ref ref="STDOUT" />
     </logger>
 	
