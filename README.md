@@ -78,6 +78,16 @@ Note that postHandle is less useful with @ResponseBody and ResponseEntity method
 使用SpringHttpSessionConfiguration.springSessionRepositoryFilter 注册bean
 所以必须在ContextLoaderListener初始化session配置，并且filter名称必须是springSessionRepositoryFilter
 
+## transaction
+默认只回滚RuntimeException和Error,所以要指定rollbackFor
+使用拦截器的方式实现的
+
+@schedule 使用beanPostProcessor 把使用注解的方法单独拉出来创建了个Runnable对象进行调度，依赖jdk调度
+cron 使用的是固定延时调度 ScheduledExecutorService
+
+
+
+
 ## notice
 - BeanPostProcessor/BeanFactoryPostProcessor 只对当前容器中的bean有效
 - context:component-scan 默认会开启context:annotation-config
