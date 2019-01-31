@@ -80,9 +80,13 @@ Note that postHandle is less useful with @ResponseBody and ResponseEntity method
 
 ## transaction
 默认只回滚RuntimeException和Error,所以要指定rollbackFor
-使用拦截器的方式实现的
+InfrastructureAdvisorAutoProxyCreator实现了BeanPostProcessor.
+事务注意事项
+1. public
+2. 类内部调用无效
+3. 默认只回滚RuntimeException 和Error
 
-@schedule 使用beanPostProcessor 把使用注解的方法单独拉出来创建了个Runnable对象进行调度，依赖jdk调度
+@schedule 使用BeanPostProcessor 把使用注解的方法单独拉出来创建了个Runnable对象进行调度，依赖jdk调度
 cron 使用的是固定延时调度 ScheduledExecutorService
 
 
