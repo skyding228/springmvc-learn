@@ -6,6 +6,9 @@
 		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.0.xsd">
     <mvc:annotation-driven></mvc:annotation-driven>
-    <context:component-scan base-package="com.skyding.learn.service" />
-    <import resource="session.xml"></import>
+    <context:component-scan base-package="com.skyding.learn"/>
+
+    <context:property-placeholder location="classpath:activemq.properties" ignore-unresolvable="true"/>
+    <!--<import resource="session.xml"></import>-->
+    <!--<import resource="applicationContext-jms.xml"></import>-->
 </beans>

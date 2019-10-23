@@ -10,10 +10,10 @@
 	</appender>
 
 	
-    <logger name="org.springframework" level="TRACE" additivity="false">
-        <appender-ref ref="STDOUT" />
-    </logger>
-	
+    <!--<logger name="org.springframework" level="TRACE" additivity="false">-->
+        <!--<appender-ref ref="STDOUT" />-->
+    <!--</logger>-->
+	<!---->
 	<!-- 日志输出级别 -->
 	<root level="info">
 		<appender-ref ref="STDOUT" />
