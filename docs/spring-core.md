@@ -64,6 +64,7 @@ registerListeners();
  earlySingletonObjects ：提前暴光的单例对象的Cache 。【用于检测循环引用，与singletonFactories互斥】（创建中）
  singletonObjects：单例对象的cache （创建完成）
 
+在创建bean的时候进行执行BeanPost Processor
 
 ### finishRefresh
 发布完成事件
